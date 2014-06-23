@@ -42,9 +42,16 @@ ActiveRecord::Schema.define(version: 20140623211318) do
   end
 
   create_table "reviews", force: true do |t|
+    t.string   "title",      null: false
+    t.text     "body",       null: false
+    t.integer  "rating",     null: false
+    t.integer  "brewery_id", null: false
+    t.integer  "user_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "reviews", ["user_id", "brewery_id"], name: "index_reviews_on_user_id_and_brewery_id", using: :btree
 
   create_table "types", force: true do |t|
     t.string   "name",       null: false
@@ -53,11 +60,11 @@ ActiveRecord::Schema.define(version: 20140623211318) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "first_name",                      null: false
-    t.string   "last_name",                       null: false
-    t.string   "email",                           null: false
-    t.string   "password",                        null: false
-    t.string   "role",       default: "standard"
+    t.string   "first_name",                  null: false
+    t.string   "last_name",                   null: false
+    t.string   "email",                       null: false
+    t.string   "password",                    null: false
+    t.string   "role",       default: "user"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

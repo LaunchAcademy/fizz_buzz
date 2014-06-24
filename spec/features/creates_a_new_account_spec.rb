@@ -12,27 +12,20 @@ So that I can create a new account
 # * I can sign up for a new account.
 
   scenario 'user creates a new account' do
-
-    user = FactoryGirl.create(:user)
-
     visit new_user_registration_path
 
-    fill_in 'First Name', with: user.first_name
-    fill_in 'Last Name', with: user.last_name
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    fill_in 'Password Confirmation', with: user.password_confirmation
+    fill_in 'First Name', with: "FirstName"
+    fill_in 'Last Name', with: "LastName"
+    fill_in 'Email', with: "example@example.com"
+    fill_in 'Password', with: "password"
+    fill_in 'Password Confirmation', with: "password"
 
     click_on 'Sign Up'
 
-    expect(page).to have_content "Welcome"   #### revisit ####
-    expect(page).to_not have_content "can't be blank"
-
+    expect(page).to have_content "Welcome aboard"
   end
 
   scenario 'without requirements' do
-    pending
-
     visit new_user_registration_path
     click_on 'Sign Up'
 
@@ -41,17 +34,15 @@ So that I can create a new account
   end
 
   scenario 'account already exists' do
-    pending
 
     user = FactoryGirl.create(:user)
 
     visit new_user_registration_path
     fill_in 'Email', with: user.email
 
-    click_on 'Sign up'
+    click_on 'Sign Up'
 
-    expect(page).to_not have_content "Sign Out"
-    expect(page).to have_content "already exists"   ### revisit ####
+    expect(page).to have_content "Email has already been taken"
 
   end
 end

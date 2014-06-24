@@ -8,7 +8,7 @@ So that I can create a new account
 } do
 
 # Acceptance Criteria:
-# * I can navigate to a login page
+# * I can navigate to a sign up page.
 # * I can sign up for a new account.
 
   scenario 'user creates a new account' do

@@ -17,7 +17,7 @@ class BreweriesController < ApplicationController
       flash[:notice] = "Brewery successfully added"
       redirect_to @brewery
     else
-      render template: 'breweries/new'
+      render :new
     end
   end
 
@@ -31,7 +31,7 @@ class BreweriesController < ApplicationController
       flash[:notice] = "Brewery information updated"
       redirect_to brewery_path(@brewery)
     else
-      render template: 'breweries/edit'
+      render :edit
     end
   end
 
@@ -41,7 +41,7 @@ class BreweriesController < ApplicationController
       flash[:notice] = "Brewery successfully deleted"
       redirect_to breweries_path
     else
-      render template: 'breweries/show'
+      render :show
     end
   end
 

@@ -48,8 +48,6 @@ feature 'update brewery information', %q(
     click_button "Update"
 
     expect(page).to have_content "can't be blank"
-    expect(page).to_not have_content "Brewery information updated"
-    expect(page).to_not have_content brewery.name
   end
 
   scenario "brewer updates brewery information with repeated information" do

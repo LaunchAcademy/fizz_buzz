@@ -1,0 +1,21 @@
+<%= link_to "Back to breweries list", breweries_path %>
+
+<ul>
+  <li><%= @brewery.name %></li>
+  <li><%= @brewery.address %></li>
+  <li><%= @brewery.city %></li>
+  <li><%= @brewery.state %></li>
+  <li><%= @brewery.zip %></li>
+  <li><%= @brewery.phone_number %></li>
+
+  <li><%= @brewery.description %></li>
+
+  <% if @brewery.hours %>
+    <li><%= @brewery.hours %></li>
+  <% end %>
+
+  <% if @brewery.url %>
+    <li><%= link_to @brewery.url, @brewery.url %></li>
+  <% end %>
+</ul>
+<%= link_to 'Delete brewery', brewery_path(@brewery), method: :delete %>

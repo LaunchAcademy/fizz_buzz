@@ -1,4 +1,3 @@
-
 1. As a user, I want to be able to sign in to the site, so that I can leave reviews for breweries.
   a. I can navigate to a log in page.
   b. I can sign up.

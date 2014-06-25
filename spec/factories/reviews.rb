@@ -2,5 +2,8 @@
 
 FactoryGirl.define do
   factory :review do
+    title "Great beer"
+    body "This beer was great"
+    rating 3
   end
 end

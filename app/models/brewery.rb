@@ -1,4 +1,5 @@
 class Brewery < ActiveRecord::Base
+  has_many :reviews
   validates :name, presence: true
   validates :name, uniqueness: { scope: :city }
   validates :address, presence: true

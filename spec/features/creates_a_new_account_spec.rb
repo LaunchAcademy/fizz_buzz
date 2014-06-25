@@ -1,19 +1,18 @@
 require 'rails_helper'
-require 'pry'
 
 feature 'user creates a new account', %Q{
-As a site visitor
-I want to be able to visit the site
-So that I can create a new account
-} do
+  As a site visitor
+  I want to be able to visit the site
+  So that I can create a new account
+  } do
 
-# Acceptance Criteria:
-# * I can navigate to a sign up page.
-# * I can sign up for a new account.
+  # Acceptance Criteria:
+  # * I can navigate to a sign up page.
+  # * I can sign up for a new account.
 
   scenario 'user creates a new account' do
-    visit new_user_registration_path
 
+    visit new_user_registration_path
     fill_in 'First Name', with: "FirstName"
     fill_in 'Last Name', with: "LastName"
     fill_in 'Email', with: "example@example.com"
@@ -22,15 +21,15 @@ So that I can create a new account
 
     click_on 'Sign Up'
 
-    expect(page).to have_content "Welcome aboard"
+    expect(page).to have_content "Welcome! You have signed up successfully."
   end
 
   scenario 'without requirements' do
+
     visit new_user_registration_path
     click_on 'Sign Up'
 
     expect(page).to have_content "can't be blank"
-
   end
 
   scenario 'account already exists' do
@@ -43,7 +42,6 @@ So that I can create a new account
     click_on 'Sign Up'
 
     expect(page).to have_content "Email has already been taken"
-
   end
 end
 

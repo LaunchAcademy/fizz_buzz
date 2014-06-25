@@ -1,7 +1,9 @@
 class BreweriesController < ApplicationController
   def index
     @breweries = Brewery.order('city')
-    @breweries = Brewery.search(params[:search]).order('city') if params[:search].present?
+    if params[:search].present?
+      @breweries = Brewery.search(params[:search]).order('city') 
+    end
   end
 
   def show
@@ -44,9 +46,6 @@ class BreweriesController < ApplicationController
     else
       render :show
     end
-  end
-
-  def search
   end
 
   private

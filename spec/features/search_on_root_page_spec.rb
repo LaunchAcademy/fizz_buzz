@@ -12,7 +12,7 @@ feature "search on root page", %q(
   scenario "enters a valid brewery into search field" do
     brewery = FactoryGirl.create(:brewery)
 
-    visit '/'
+    visit root_path
     
     fill_in "Search", with: brewery.name
     
@@ -24,7 +24,7 @@ feature "search on root page", %q(
   scenario "enters an invalid brewery into search field" do
     brewery = FactoryGirl.create(:brewery)
 
-    visit '/'
+    visit root_path
     
     fill_in "Search", with: brewery.name + "FooBizz"
     
@@ -32,5 +32,17 @@ feature "search on root page", %q(
 
     expect(page).to_not have_content brewery.name
     expect(page).to have_content "Your search returned no results."
+  end
+
+  scenario "enters a valid brewery city into search field" do
+    brewery = FactoryGirl.create(:brewery, city: "Athens")
+
+    visit root_path
+
+    fill_in "Search", with: brewery.city
+
+    click_button "Search"
+
+    expect(page).to have_content brewery.name
   end
 end

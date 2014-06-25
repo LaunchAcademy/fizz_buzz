@@ -1,30 +1,30 @@
-1. As a user, I want to be able to sign in to the site, so that I can leave reviews for breweries.
+<!-- 1. As a user, I want to be able to sign in to the site, so that I can leave reviews for breweries.
   a. I can navigate to a log in page.
   b. I can sign up.
   c. I can sign in.
   e. I can sign out
-
-2. As a user, I want to view a list of breweries, so I can find a brewery to visit.
+ -->
+<!-- 2. As a user, I want to view a list of breweries, so I can find a brewery to visit.
   #show by location (city)
   a. I can navigate to a page with all the breweries listed.
   b. Every brewery must have their name and city listed.
   c. List is ordered by #tbd
-  d. All breweries should link to their personal page.
+  d. All breweries should link to their personal page. -->
 
-2. As a user, I want to view details about a specific brewery, so I can decide if I want to visit.
+<!-- 2. As a user, I want to view details about a specific brewery, so I can decide if I want to visit.
   a. I can see all of the details about the brewery
   b. I can see all of the reviews of the brewery.
-
-3. As a user, I want to search for a brewery, so that I can write a review.
+ -->
+<!-- 3. As a user, I want to search for a brewery, so that I can write a review.
   a. I can enter search criteria into a search field that is matched to #TBD
   b. after the search I am presented with the breweries that match my search
-  c. I am given an message if the search returned no results.
+  c. I am given an message if the search returned no results. -->
 
-4. As a user, I want to write a review of a brewery, so that I can share my experience at the brewery.
+<!-- 4. As a user, I want to write a review of a brewery, so that I can share my experience at the brewery.
   a. I am in the brewery details page.
   b. The review description must be more that # characters?
   c. The review has a title.
-  d. I can give a rating from num to num.
+  d. I can give a rating from num to num. -->
 
 
 7. As a user, I want to be able to up vote or down vote a review, in order to identify quality reviews.

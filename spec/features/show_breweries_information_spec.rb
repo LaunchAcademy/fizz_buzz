@@ -1,7 +1,12 @@
 require 'rails_helper'
 
-feature '2. As a user, I want to view details about a
-  specific brewery, so I can decide if I want to visit.' do
+feature 'show brewery information', %q(
+  As a user, I want to view details about a specific brewery,
+  so I can decide if I want to visit.
+    # I can view all information about a brewery. (name, description, etc.)
+    # I can navigate back to the breweies index page
+    # I can navigate to a breweries company website.
+) do
 
   # I can view all information about a brewery. (name, description, etc.)
   # I can navigate back to the breweies index page
@@ -10,7 +15,7 @@ feature '2. As a user, I want to view details about a
     scenario "user visits a brewery's information page" do
       brewery = FactoryGirl.create(:brewery)
 
-      visit "/breweries/#{brewery.id}"
+      visit brewery_path(brewery)
 
       expect(page).to have_content brewery.name
       expect(page).to have_content brewery.address
@@ -21,7 +26,6 @@ feature '2. As a user, I want to view details about a
       expect(page).to have_content brewery.phone_number
       expect(page).to have_content brewery.url
       expect(page).to have_content brewery.description
-      expect(page).to_not have_content brewery.user_id
 
       expect(page).to have_link "Back to breweries list", breweries_path
       expect(page).to have_link brewery.url, href: brewery.url

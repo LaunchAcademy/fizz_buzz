@@ -33,3 +33,5 @@
 
 12. As an admin, I want to be able to delete offense reviews, so that the site remains family friendly.
     As an admin, I want to be able to
+
+As a user, I want to login and be redirected to the same page I was visiting before, so that I don't get lost!

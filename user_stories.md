@@ -15,6 +15,10 @@
 
 
 2. As a user, I want to view details about a specific brewery, so I can decide if I want to visit.
+  I can view all information about a brewery. (name, description, etc.)
+  I can navigate back to the breweies index page
+  I can navigate to a breweries company website.
+
 3. As a user, I want to search for a brewery, so that I can write a review.
 4. As a user, I want to write a review of a brewery, so that I can share my experience at the brewery.
 

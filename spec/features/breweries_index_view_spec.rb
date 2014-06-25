@@ -8,7 +8,7 @@ feature "As a user, I want to view a list of breweries, so I can find a brewery 
   # d. All breweries should link to their personal page.
 
   scenario "user visits brewery index page" do
-    breweries = FactoryGirl.create_list(:breweries, 3)
+    breweries = FactoryGirl.create_list(:brewery, 3)
 
     visit '/breweries'
 

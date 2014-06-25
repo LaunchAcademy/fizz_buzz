@@ -10,19 +10,19 @@
   <% end %>
 
   <%= f.label :title %><br>
-  <%= f.text_field :title%>
+  <%= f.text_field :title%><br>
 
-  <br><%= f.label :body %><br>
+  <%= f.label :body %><br>
   <%= f.text_area :body %><br>
 
-  <% i = 1 %>
+
   <strong>Rating</strong><br>
-  <% 5.times do %>
+  <% (1..5).each do |i| %>
     <%= f.radio_button(:rating, i) %>
     <%= f.label(:rating_star, "#{i} Star") %>
-    <% i += 1 %>
-    <% end %>
-  <br><%= f.submit 'Submit' %>
+  <% end %>
+  <br>
+  <%= f.submit 'Submit' %>
 
 <% end %>
 

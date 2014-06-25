@@ -5,5 +5,7 @@ FactoryGirl.define do
     title "Great beer"
     body "This beer was great"
     rating 3
+    user
+    brewery
   end
 end

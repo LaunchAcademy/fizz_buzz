@@ -1,0 +1,5 @@
+<%= form_tag(breweries_path, method: "get") do %>
+  <%= label_tag(:search, "Search for brewery:") %>
+  <%= text_field_tag(:search) %>
+  <%= submit_tag("Search") %>
+<% end %>

@@ -18,3 +18,4 @@
     <li><%= link_to @brewery.url, @brewery.url %></li>
   <% end %>
 </ul>
+<%= link_to 'Delete brewery', brewery_path(@brewery), method: :delete %>

@@ -1,0 +1,60 @@
+<h1>Create a new brewery</h1>
+
+<%= form_for @brewery do |f| %>
+  <% if @brewery.errors.any? %>
+    <ul>
+      <% @brewery.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+
+  <div>
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+  </div>
+
+  <div>
+    <%= f.label :zip %>
+    <%= f.text_field :zip %>
+  </div>
+
+  <div>
+    <%= f.label :phone_number, "Phone Number" %>
+    <%= f.text_field :phone_number %>
+  </div>
+
+  <div>
+    <%= f.label :hours %>
+    <%= f.text_field :hours %>
+  </div>
+
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div>
+    <%= f.label :url, "URL" %>
+    <%= f.text_field :url %>
+  </div>
+
+  <div>
+    <%= f.submit "Create" %>
+  </div>
+<% end %>

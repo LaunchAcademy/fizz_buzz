@@ -7,6 +7,20 @@ class BreweriesController < ApplicationController
     @brewery = Brewery.find(params[:id])
   end
 
+  def new
+    @brewery = Brewery.new
+  end
+
+  def create
+    @brewery = Brewery.new(brewery_params)
+    if @brewery.save
+      flash[:notice] = "Brewery successfully added"
+      redirect_to @brewery
+    else
+      render template: 'breweries/new'
+    end
+  end
+
   def edit
     @brewery = Brewery.find(params[:id])
   end
@@ -18,6 +32,16 @@ class BreweriesController < ApplicationController
       redirect_to brewery_path(@brewery)
     else
       render template: 'breweries/edit'
+    end
+  end
+
+  def destroy
+    @brewery = Brewery.find(params[:id])
+    if @brewery.destroy
+      flash[:notice] = "Brewery successfully deleted"
+      redirect_to breweries_path
+    else
+      render template: 'breweries/show'
     end
   end
 

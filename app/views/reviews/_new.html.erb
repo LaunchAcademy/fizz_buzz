@@ -9,19 +9,20 @@
     </ul>
   <% end %>
 
-  <%= f.label :title %>
+  <%= f.label :title %><br>
   <%= f.text_field :title%>
 
-  <%= f.label :body %>
-  <%= f.text_area :body %>
+  <br><%= f.label :body %><br>
+  <%= f.text_area :body %><br>
 
   <% i = 1 %>
+  <strong>Rating</strong><br>
   <% 5.times do %>
-    <%= f.radio_button(:rating, 1) %>
+    <%= f.radio_button(:rating, i) %>
     <%= f.label(:rating_star, "#{i} Star") %>
     <% i += 1 %>
     <% end %>
-  <%= f.submit 'Submit' %>
+  <br><%= f.submit 'Submit' %>
 
 <% end %>
 

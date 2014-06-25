@@ -18,7 +18,6 @@ feature 'user adds review', %Q{
 
     visit brewery_path(brewery)
 
-    # save_and_open_page
     fill_in "Title", with: review.title
     fill_in "Body", with: review.body
 

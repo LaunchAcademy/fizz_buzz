@@ -18,7 +18,7 @@
   <div><%= f.label :password_confirmation, "Password Confirmation" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
-  <div><%= f.file_field :profile_photo %></div>
+  <div><%= f.label "Profile Photo" %><br /><%= f.file_field :profile_photo %></div>
 
   <div><%= f.submit "Sign Up" %></div>
 <% end %>

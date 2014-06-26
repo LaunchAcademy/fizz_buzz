@@ -27,8 +27,13 @@
     <li>Rating: <%= review.rating %></li>
     <li>Title: <%= review.title %></li>
     <li>Body: <%= review.body %></li>
+
     <% if current_user.id == review.user_id %>
       <%= link_to 'Delete review', brewery_review_path(@brewery, review), method: :delete %>
     <%end%>
+
+    <%= link_to 'Edit', edit_brewery_review_path(@brewery, review) %>
+
   </ul>
+
 <% end %>

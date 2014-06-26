@@ -28,6 +28,23 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def edit
+    @review = Review.find(params[:id])
+    @brewery = Brewery.find(params[:brewery_id])
+  end
+
+  def update
+    @brewery = Brewery.find(params[:brewery_id])
+    @review = Review.find(params[:id])
+
+    if current_user == @review.user && @review.update(review_params)
+      flash[:notice] = "Review successfully updated"
+      redirect_to brewery_path(@review.brewery)
+    else
+      render :edit
+    end
+  end
+
   def review_params
     params.require(:review).permit(:title, :body, :rating)
   end

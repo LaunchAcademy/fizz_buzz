@@ -13,7 +13,7 @@ feature 'User deletes a review', %Q{
 
   scenario 'User deletes a review' do
     login_as user
-    review = FactoryGirl.build(:review)
+    review = FactoryGirl.create(:review, user: user)
     review.brewery_id = brewery.id
     review.user_id = user.id
     review.save

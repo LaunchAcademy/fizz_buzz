@@ -27,5 +27,6 @@
     <li>Rating: <%= review.rating %></li>
     <li>Title: <%= review.title %></li>
     <li>Body: <%= review.body %></li>
+    <%= link_to 'Delete', brewery_review_path(@brewery, review), method: :delete %>
   </ul>
 <% end %>

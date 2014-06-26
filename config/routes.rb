@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :breweries
 
   resources :breweries do
-    resources :reviews, only: [:create,:new]
+    resources :reviews
   end
 
 end

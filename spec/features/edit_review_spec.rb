@@ -7,18 +7,12 @@ feature 'user edits review', %Q{As a user, I want to be able to edit my reviews.
   #   b. I can only edit reviews that I submitted
   #   c. After editing I can see the review in the list of reviews, the reviews are still in the same order
 
-
-  let(:user) { FactoryGirl.create(:user) }
-  let(:brewery) { FactoryGirl.create(:brewery) }
-  # let(:review) { FactoryGirl.create(:review) } why is this not working?
+  let(:review) { FactoryGirl.create(:review) }
 
   scenario 'User correctly edits review' do
-    login_as user
-    review = FactoryGirl.build(:review)
-    review.brewery_id = brewery.id
-    review.user_id = user.id
-    review.save
-    visit brewery_path(brewery)
+    login_as review.user
+
+    visit brewery_path(review.brewery)
 
     click_on "Edit review"
     choose "review_rating_5"
@@ -32,12 +26,9 @@ feature 'user edits review', %Q{As a user, I want to be able to edit my reviews.
   end
 
   scenario 'User incorrectly edits review' do
-    login_as user
-    review = FactoryGirl.build(:review)
-    review.brewery_id = brewery.id
-    review.user_id = user.id
-    review.save
-    visit brewery_path(brewery)
+    login_as review.user
+
+    visit brewery_path(review.brewery)
 
     click_on "Edit review"
 
@@ -52,12 +43,11 @@ feature 'user edits review', %Q{As a user, I want to be able to edit my reviews.
 
   scenario 'User can not edit a review that the user didnt create' do
     user_2 = FactoryGirl.create(:user)
-    review = FactoryGirl.create(:review, user: user, brewery: brewery)
 
     login_as user_2
-    visit brewery_path(brewery)
+    visit brewery_path(review.brewery)
 
+    expect(page).to have_content review.title
     expect(page).to_not have_content "Edit review"
   end
-
 end

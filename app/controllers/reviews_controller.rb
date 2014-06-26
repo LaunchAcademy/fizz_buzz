@@ -19,10 +19,11 @@ class ReviewsController < ApplicationController
   def destroy
     @brewery = Brewery.find(params[:brewery_id])
     @review = Review.find(params[:id])
-    if @review.destroy
+    if @review.user == current_user && @review.destroy
       flash[:notice] = "Review successfully deleted"
       redirect_to brewery_path(@brewery)
     else
+      flash.now[:notice] = "Review has not been deleted"
       render template: 'breweries/show'
     end
   end

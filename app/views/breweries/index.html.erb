@@ -1,6 +1,17 @@
-<% @breweries.each do |brewery| %>
-  <ul>
-    <li><%= link_to brewery.name, brewery_path(brewery) %></li>
-    <li><%= brewery.city %></li>
-  </ul>
+<% if @breweries.empty? %>
+  <p>Your search returned no results.</p>
+<% else %>
+  <div id="breweries-list">
+    <% @breweries.each do |brewery| %>
+      <ul>
+        <li><%= link_to brewery.name, brewery_path(brewery) %></li>
+        <li><%= brewery.city %></li>
+      </ul>
+    <% end %>
+  </div>
+  <%= paginate @breweries %>
 <% end %>
+
+
+
+

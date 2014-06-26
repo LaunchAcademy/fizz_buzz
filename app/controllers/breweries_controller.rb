@@ -1,6 +1,10 @@
 class BreweriesController < ApplicationController
   def index
-    @breweries = Brewery.order('city')
+    if params[:search]
+      @breweries = Brewery.search(params[:search]).order('city').page(params[:page])
+    else
+      @breweries = Brewery.order('city').page(params[:page])
+    end
   end
 
   def show

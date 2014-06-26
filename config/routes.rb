@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root to: "breweries#index"
+  root to: "welcome#index"
 
   resources :breweries
 

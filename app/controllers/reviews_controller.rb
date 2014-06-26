@@ -37,8 +37,7 @@ class ReviewsController < ApplicationController
     @brewery = Brewery.find(params[:brewery_id])
     @review = Review.find(params[:id])
 
-    if @review.update(review_params)
-
+    if current_user == @review.user && @review.update(review_params)
       flash[:notice] = "Review successfully updated"
       redirect_to brewery_path(@review.brewery)
     else

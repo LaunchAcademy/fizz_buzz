@@ -21,7 +21,6 @@ feature 'user edits review', %Q{As a user, I want to be able to edit my reviews.
     visit brewery_path(brewery)
 
     click_on "Edit review"
-    save_and_open_page
     choose "review_rating_5"
     fill_in 'Body', with: 'This is a test string'
     click_on 'Update'

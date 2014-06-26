@@ -30,10 +30,8 @@
 
     <% if current_user.id == review.user_id %>
       <%= link_to 'Delete review', brewery_review_path(@brewery, review), method: :delete %>
+      <%= link_to 'Edit review', edit_brewery_review_path(@brewery, review) %>
     <%end%>
-
-    <%= link_to 'Edit', edit_brewery_review_path(@brewery, review) %>
-
   </ul>
 
 <% end %>

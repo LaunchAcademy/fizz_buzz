@@ -20,7 +20,7 @@ feature 'user edits review', %Q{As a user, I want to be able to edit my reviews.
     review.save
     visit brewery_path(brewery)
 
-    click_on "Edit"
+    click_on "Edit review"
     save_and_open_page
     choose "review_rating_5"
     fill_in 'Body', with: 'This is a test string'
@@ -40,7 +40,7 @@ feature 'user edits review', %Q{As a user, I want to be able to edit my reviews.
     review.save
     visit brewery_path(brewery)
 
-    click_on "Edit"
+    click_on "Edit review"
 
     fill_in 'Body', with: ''
     click_on 'Update'
@@ -49,6 +49,16 @@ feature 'user edits review', %Q{As a user, I want to be able to edit my reviews.
     expect(page).to_not have_content "Review successfully updated"
 
 
+  end
+
+  scenario 'User can not edit a review that the user didnt create' do
+    user_2 = FactoryGirl.create(:user)
+    review = FactoryGirl.create(:review, user: user, brewery: brewery)
+
+    login_as user_2
+    visit brewery_path(brewery)
+
+    expect(page).to_not have_content "Edit review"
   end
 
 end

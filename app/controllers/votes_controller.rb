@@ -3,8 +3,8 @@ class VotesController< ApplicationController
     @brewery = Brewery.find(params[:brewery_id])
     @review = Review.find(params[:review_id])
     @vote = Vote.find_or_initialize_by(
-      user_id: current_user.id,
-      review_id: @review.id
+      user: current_user,
+      review: @review
     )
 
     if @vote.update!(vote_params)

@@ -37,7 +37,6 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'dotenv-rails'
   gem 'email_spec'
-  gem 'mailcatcher'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -64,6 +64,10 @@ GEM
       dotenv (= 0.11.1)
     erubis (2.7.0)
     excon (0.37.0)
+    email_spec (1.6.0)
+      launchy (~> 2.1)
+      mail (~> 2.2)
+    erubis (2.7.0)
     execjs (2.2.0)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
@@ -90,6 +94,8 @@ GEM
     fog-json (1.0.0)
       multi_json (~> 1.0)
     formatador (0.2.5)
+    haml (4.0.5)
+      tilt
     hike (1.2.3)
     i18n (0.6.9)
     inflecto (0.0.2)
@@ -212,6 +218,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   dotenv-rails
+  email_spec
   factory_girl_rails
   fog
   jbuilder (~> 2.0)

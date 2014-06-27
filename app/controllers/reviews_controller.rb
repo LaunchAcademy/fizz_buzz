@@ -12,7 +12,6 @@ class ReviewsController < ApplicationController
       if @brewery.user
         BreweryMailer.review_notification(@brewery.user, p).deliver
       end
-      
       flash[:notice] = "Review successfully added"
       redirect_to brewery_path(@brewery)
     else

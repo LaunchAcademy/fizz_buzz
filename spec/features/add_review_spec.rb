@@ -19,24 +19,24 @@ feature 'user adds review', %Q{
 
     visit brewery_path(brewery)
 
-    fill_in "Title", with: "Moe's"
-    fill_in "Body", with: "shitty beer"
-    choose "review_rating_2"
+    fill_in 'Title', with: 'Moe\'s'
+    fill_in 'Body', with: 'shitty beer'
+    choose 'review_rating_2'
     click_on 'Submit'
 
-    expect(page).to have_content "Moe's"
-    expect(page).to have_content "shitty beer"
-    expect(page).to have_content "Review successfully added"
+    expect(page).to have_content 'Moe\'s'
+    expect(page).to have_content 'shitty beer'
+    expect(page).to have_content 'Review successfully added'
   end
 
-  scenario "user incorrectly fills out form" do
+  scenario 'user incorrectly fills out form' do
     login_as user
 
     visit brewery_path(brewery)
     click_on 'Submit'
 
-    expect(page).to have_content "can't be blank"
-    expect(page).to_not have_content "Review successfully added"
+    expect(page).to have_content 'can\'t be blank'
+    expect(page).to_not have_content 'Review successfully added'
   end
 
   scenario 'brewer receives an email when new review posted' do
@@ -46,14 +46,14 @@ feature 'user adds review', %Q{
 
     visit brewery_path(brewery)
 
-    fill_in "Title", with: "Moe's"
-    fill_in "Body", with: "shitty beer"
-    choose "review_rating_2"
+    fill_in 'Title', with: 'Moe\'s'
+    fill_in 'Body', with: 'shitty beer'
+    choose 'review_rating_2'
     click_on 'Submit'
 
-    expect(page).to have_content "Moe's"
-    expect(page).to have_content "shitty beer"
-    expect(page).to have_content "Review successfully added"
+    expect(page).to have_content 'Moe\'s'
+    expect(page).to have_content 'shitty beer'
+    expect(page).to have_content 'Review successfully added'
 
     expect(ActionMailer::Base.deliveries.size).to eql(1)
 

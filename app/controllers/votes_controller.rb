@@ -2,8 +2,10 @@ class VotesController< ApplicationController
   def create
     @brewery = Brewery.find(params[:brewery_id])
     @review = Review.find(params[:review_id])
-    @vote = Vote.find_or_initialize_by(user_id: current_user.id,
-      review_id: @review.id)
+    @vote = Vote.find_or_initialize_by(
+      user_id: current_user.id,
+      review_id: @review.id
+    )
 
     if @vote.update!(vote_params)
       redirect_to brewery_path(@brewery)

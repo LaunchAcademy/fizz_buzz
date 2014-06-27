@@ -38,6 +38,4 @@ RSpec.describe Review, :type => :model do
       expect(review.total_vote_count).to eq 0
     end
   end
-
-
 end

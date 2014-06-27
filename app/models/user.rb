@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :role, inclusion: {in: ['user', 'admin', 'brewer']}
+  mount_uploader :profile_photo, ProfilePhotoUploader
 end

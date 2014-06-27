@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :breweries
 
   resources :breweries do
-    resources :reviews
+    resources :reviews do
+      resources :votes
+    end
   end
-
 end

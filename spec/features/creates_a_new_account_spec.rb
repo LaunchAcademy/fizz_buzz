@@ -13,6 +13,7 @@ feature 'user creates a new account', %Q{
   scenario 'user creates a new account' do
 
     visit new_user_registration_path
+
     fill_in 'First Name', with: "FirstName"
     fill_in 'Last Name', with: "LastName"
     fill_in 'Email', with: "example@example.com"

@@ -7,7 +7,7 @@ class VotesController< ApplicationController
       review: @review
     )
 
-    if @vote.update!(vote_params)
+    if @vote.update(vote_params)
       redirect_to brewery_path(@brewery)
     elsif @vote.save
       redirect_to brewery_path(@brewery)

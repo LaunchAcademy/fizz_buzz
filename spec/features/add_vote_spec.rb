@@ -13,27 +13,24 @@ feature 'adds votes', %Q{
   let(:brewery) { FactoryGirl.create(:brewery) }
   let(:review) { FactoryGirl.create(:review, brewery: brewery) }
 
-  scenario "user 'Up' a review" do
-
+  before :each do
     login_as user
+  end
+
+  scenario "user 'Up' a review" do
     vote_count = review.up_vote_count
 
     visit brewery_path(review.brewery)
-
-
     click_on 'Up'
 
     expect(page).to have_content '1'
     #expect(review.up_vote_count).to eq vote_count + 1
-    save_and_open_page
   end
 
    scenario "user 'Down' a review" do
-    login_as user
     vote_count = review.down_vote_count
 
     visit brewery_path(review.brewery)
-
     click_on 'Down'
 
     expect(page).to have_content '-1'
@@ -41,11 +38,9 @@ feature 'adds votes', %Q{
   end
 
   scenario "user 'Up' a review" do
-    login_as user
     vote_count = review.up_vote_count
 
     visit brewery_path(review.brewery)
-
     click_on 'Up'
 
     expect(page).to have_content '1'

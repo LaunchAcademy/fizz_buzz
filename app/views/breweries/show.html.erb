@@ -24,18 +24,23 @@
 
 <% @brewery.reviews.each do |review| %>
 
-  <%= form_for [@brewery, review, @vote] do |f| %>
+    <%= form_for [@brewery, review, @vote] do |f| %>
       <%=f.hidden_field :score, value: 1 %>
       <%= f.submit "Up" %>
     <%end%>
-    <%= review.up_vote_count %>
+
+    <div class="up-vote">
+      <%= review.up_vote_count %>
+    </div>
 
     <%= form_for [@brewery, review, @vote] do |f| %>
       <%=f.hidden_field :score, value: -1%>
       <%= f.submit "Down" %>
     <%end%>
 
-  <%= review.down_vote_count %>
+    <div class="down-vote">
+      <%= review.down_vote_count %>
+    </div>
 
   <ul>
     <li>Rating: <%= review.rating %></li>

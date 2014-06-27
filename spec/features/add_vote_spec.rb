@@ -22,19 +22,21 @@ feature 'adds votes', %Q{
 
     visit brewery_path(review.brewery)
     click_on 'Up'
-
-    expect(page).to have_content '1'
-    #expect(review.up_vote_count).to eq vote_count + 1
+    within('.up-vote') do
+      expect(page).to have_content '1'
+      expect(review.up_vote_count).to eq vote_count + 1
+    end
   end
 
-   scenario "user 'Down' a review" do
+  scenario "user 'Down' a review" do
     vote_count = review.down_vote_count
 
     visit brewery_path(review.brewery)
     click_on 'Down'
-
-    expect(page).to have_content '-1'
-    #expect(review.down_vote_count).to eq vote_count - 1
+    within('.down-vote') do
+      expect(page).to have_content '-1'
+      expect(review.down_vote_count).to eq vote_count - 1
+    end
   end
 
   scenario "user 'Up' a review" do
@@ -43,12 +45,16 @@ feature 'adds votes', %Q{
     visit brewery_path(review.brewery)
     click_on 'Up'
 
-    expect(page).to have_content '1'
-    # expect(review.up_vote_count).to eq vote_count + 1
+    within('.up-vote') do
+      expect(page).to have_content '1'
+      expect(review.up_vote_count).to eq vote_count + 1
+    end
 
-     click_on 'Down'
+    click_on 'Down'
 
-    expect(page).to have_content '-1'
-    # expect(review.down_vote_count).to eq vote_count - 1
+    within('.down-vote') do
+      expect(page).to have_content '-1'
+      expect(review.down_vote_count).to eq vote_count - 1
+    end
   end
 end

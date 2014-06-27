@@ -22,12 +22,22 @@ RSpec.describe Review, :type => :model do
     end
   end
 
-    describe 'down_vote_count' do
+  describe 'down_vote_count' do
     it 'sums the positive votes' do
       review = FactoryGirl.create(:review)
       5.times { FactoryGirl.create(:vote, review: review, score: -1) }
       expect(review.down_vote_count).to eq -5
     end
   end
+
+  describe 'total_vote_count' do
+    it 'sum of all counts' do
+      review = FactoryGirl.create(:review)
+      3.times { FactoryGirl.create(:vote, review: review, score: -1) }
+      3.times { FactoryGirl.create(:vote, review: review, score: 1) }
+      expect(review.total_vote_count).to eq 0
+    end
+  end
+
 
 end

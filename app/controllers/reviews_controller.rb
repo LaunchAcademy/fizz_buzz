@@ -9,6 +9,9 @@ class ReviewsController < ApplicationController
     @review = Review.new(p)
 
     if @review.save
+      if @brewery.user
+        BreweryMailer.review_notification(@brewery.user, p).deliver
+      end
       flash[:notice] = "Review successfully added"
       redirect_to brewery_path(@brewery)
     else

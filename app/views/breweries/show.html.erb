@@ -1,5 +1,11 @@
 <%= link_to "Back to breweries list", breweries_path %>
 
+<% if current_user %>
+  <% if current_user.id == @brewery.user_id %>
+    <%= link_to 'Update', edit_brewery_path(@brewery) %>
+  <% end %>
+<% end %>
+
 <ul>
   <li><%= @brewery.name %></li>
   <li><%= @brewery.address %></li>

@@ -20,7 +20,7 @@ class BreweriesController < ApplicationController
 
   def update
     @brewery = Brewery.find(params[:id])
-    if @brewery.update(brewery_params)
+    if current_user == @brewery.user && @brewery.update(brewery_params)
       flash[:notice] = "Brewery information updated"
       redirect_to brewery_path(@brewery)
     else

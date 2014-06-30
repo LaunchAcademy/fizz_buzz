@@ -1,5 +1,6 @@
-class BreweriesController < ApplicationController
-
+class Admin::BreweriesController < ApplicationController
+  before_action :authorize_admin
+  
   def index
     if params[:search]
       @breweries = Brewery.search(params[:search]).order('city').page(params[:page])
@@ -12,6 +13,20 @@ class BreweriesController < ApplicationController
     @brewery = Brewery.find(params[:id])
     @review = Review.new
     @vote = Vote.new
+  end
+  
+  def new
+    @brewery = Brewery.new
+  end
+
+  def create
+    @brewery = Brewery.new(brewery_params)
+    if @brewery.save
+      flash[:notice] = "Brewery successfully added"
+      redirect_to @brewery
+    else
+      render :new
+    end
   end
 
   def edit
@@ -28,6 +43,16 @@ class BreweriesController < ApplicationController
     end
   end
 
+  def destroy
+    @brewery = Brewery.find(params[:id])
+    if @brewery.destroy
+      flash[:notice] = "Brewery successfully deleted"
+      redirect_to admin_breweries_path
+    else
+      render :show
+    end
+  end
+
   private
 
   def brewery_params
@@ -35,10 +60,9 @@ class BreweriesController < ApplicationController
       :hours, :phone_number, :url, :description, :user_id)
   end
 
-  def authorize_brewer
-    unless current_user.brewery.exist?
-      raise ActionController::RoutingError.new('Not Found')
+  def authorize_admin
+    unless current_user.role == "admin"
+      redirect_to '/404.html'
     end
   end
-
 end

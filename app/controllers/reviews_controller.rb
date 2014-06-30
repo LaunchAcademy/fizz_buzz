@@ -15,6 +15,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Review successfully added"
       redirect_to brewery_path(@brewery)
     else
+      @vote = Vote.new
       render template: 'breweries/show'
     end
   end

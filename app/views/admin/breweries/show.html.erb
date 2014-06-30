@@ -1,4 +1,4 @@
-<%= link_to "Back to breweries list", breweries_path %>
+<%= link_to "Back to breweries list", admin_breweries_path %>
 
 <ul>
   <li><%= @brewery.name %></li>
@@ -18,23 +18,13 @@
     <li><%= link_to @brewery.url, @brewery.url %></li>
   <% end %>
 </ul>
-
-<%= render 'reviews/new' %>
+<%= link_to 'Delete brewery', admin_brewery_path(@brewery), method: :delete %>
 
 <% @brewery.reviews.each do |review| %>
-    <%= form_for [@brewery, review, @vote] do |f| %>
-      <%=f.hidden_field :score, value: 1 %>
-      <%= f.submit "Up" %>
-    <%end%>
 
     <div class="up-vote">
       <%= review.up_vote_count %>
     </div>
-
-    <%= form_for [@brewery, review, @vote] do |f| %>
-      <%=f.hidden_field :score, value: -1%>
-      <%= f.submit "Down" %>
-    <%end%>
 
     <div class="down-vote">
       <%= review.down_vote_count %>
@@ -44,12 +34,9 @@
     <li>Rating: <%= review.rating %></li>
     <li>Title: <%= review.title %></li>
     <li>Body: <%= review.body %></li>
-    <% if current_user %>
-      <% if current_user.id == review.user_id %>
-        <%= link_to 'Delete review', brewery_review_path(@brewery, review), method: :delete %>
-        <%= link_to 'Edit review', edit_brewery_review_path(@brewery, review) %>
-      <% end %>
-    <% end %>
+    <%= link_to 'Delete review', admin_brewery_review_path(@brewery, review), method: :delete %>
+    <%= link_to 'Edit review', edit_admin_brewery_review_path(@brewery, review) %>
+
   </ul>
 
 <% end %>

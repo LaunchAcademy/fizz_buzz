@@ -12,6 +12,7 @@ class VotesController< ApplicationController
     elsif @vote.save
       redirect_to brewery_path(@brewery)
     else
+      @brewery = Brewery.find(params[:brewery_id])
       render template: 'breweries/show'
     end
   end

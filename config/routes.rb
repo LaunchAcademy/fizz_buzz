@@ -10,4 +10,10 @@ Rails.application.routes.draw do
       resources :votes
     end
   end
+
+  namespace :admin do
+    resources :breweries do
+      resources :reviews, only: [:edit, :update, :delete, :destroy]
+    end
+  end
 end

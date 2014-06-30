@@ -1,5 +1,4 @@
-
-<%= form_for [@brewery, @review] do |f| %>
+<%= form_for [:admin, @brewery, @review] do |f| %>
 
  <% if @review.errors.any? %>
     <ul>
@@ -22,6 +21,6 @@
     <%= f.label(:rating_star, "#{i} Star") %>
   <% end %>
   <br>
-  <%= f.submit 'Submit' %>
+  <%= f.submit 'Update' %>
 
 <% end %>

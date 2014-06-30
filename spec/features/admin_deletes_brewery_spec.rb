@@ -17,7 +17,7 @@ feature "admin deletes brewery", %Q{
 
     visit admin_brewery_path(brewery)
 
-    click_link "Delete brewery"
+    click_on "Delete Brewery"
 
     expect(page).to have_content "Brewery successfully deleted"
     expect(page.current_path).to eq(admin_breweries_path)
@@ -36,6 +36,6 @@ feature "admin deletes brewery", %Q{
 
     visit brewery_path(brewery)
 
-    expect(page).to_not have_content "Delete brewery"
+    expect(page).to_not have_content "Delete Brewery"
   end
 end

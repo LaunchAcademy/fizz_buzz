@@ -18,7 +18,7 @@
     <li><%= link_to @brewery.url, @brewery.url %></li>
   <% end %>
 </ul>
-<%= link_to 'Delete brewery', admin_brewery_path(@brewery), method: :delete %>
+<%= link_to 'Delete Brewery', admin_brewery_path(@brewery), method: :delete %>
 
 <% @brewery.reviews.each do |review| %>
 

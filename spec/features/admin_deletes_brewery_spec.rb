@@ -26,9 +26,7 @@ feature "admin deletes brewery", %Q{
   scenario "user can't get to admin brewery page" do
     login_as user
 
-    visit admin_brewery_path(brewery)
-
-    expect(page).to have_content "The page you were looking for doesn't exist"
+    expect{visit admin_brewery_path(brewery)}.to raise_error(ActionController::RoutingError)
   end
 
   scenario "user has no option to delete on user brewery page" do

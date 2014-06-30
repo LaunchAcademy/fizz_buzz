@@ -18,8 +18,7 @@ feature 'admin views breweries', %Q(
 
   scenario 'user logs in as admin' do
     login_as(FactoryGirl.create(:user))
-    visit admin_breweries_path
 
-    expect(page).to have_content "The page you were looking for doesn't exist"
+    expect{visit admin_breweries_path}.to raise_error(ActionController::RoutingError)
   end
 end

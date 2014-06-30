@@ -26,7 +26,7 @@ feature 'admin can create new brewery' do
 
   scenario 'user tries to create brewery' do
     login_as user
-    visit new_admin_brewery_path
-    expect(page).to have_content("The page you were looking for doesn't exist")
+
+    expect{visit new_admin_brewery_path}.to raise_error(ActionController::RoutingError)
   end
 end

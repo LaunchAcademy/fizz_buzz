@@ -61,8 +61,8 @@ class Admin::BreweriesController < ApplicationController
   end
 
   def authorize_admin
-    unless current_user.role == "admin"
-      redirect_to '/404.html'
+    unless current_user.is_admin?
+      raise ActionController::RoutingError.new('Not Found')
     end
   end
 end

@@ -41,9 +41,7 @@ feature 'admin edits a review', %Q{
   scenario 'User can not edit a review that the user didnt create' do
     login_as user
 
-    visit admin_brewery_path(review.brewery)
-
-    expect(page).to have_content "The page you were looking for doesn't exist"
+    expect{visit admin_brewery_path(review.brewery)}.to raise_error(ActionController::RoutingError)
   end
 
   scenario 'User can not edit a review that the user didnt create' do

@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates :role, inclusion: {in: ['user', 'admin', 'brewer']}
+  validates :role, inclusion: {in: ['user', 'admin']}
   mount_uploader :profile_photo, ProfilePhotoUploader
+
+  def is_admin?
+    role == "admin"
+  end
 end

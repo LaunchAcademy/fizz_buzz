@@ -1,0 +1,42 @@
+<%= link_to "Back to breweries list", admin_breweries_path %>
+
+<ul>
+  <li><%= @brewery.name %></li>
+  <li><%= @brewery.address %></li>
+  <li><%= @brewery.city %></li>
+  <li><%= @brewery.state %></li>
+  <li><%= @brewery.zip %></li>
+  <li><%= @brewery.phone_number %></li>
+
+  <li><%= @brewery.description %></li>
+
+  <% if @brewery.hours %>
+    <li><%= @brewery.hours %></li>
+  <% end %>
+
+  <% if @brewery.url %>
+    <li><%= link_to @brewery.url, @brewery.url %></li>
+  <% end %>
+</ul>
+<%= link_to 'Delete Brewery', admin_brewery_path(@brewery), method: :delete %>
+
+<% @brewery.reviews.each do |review| %>
+
+    <div class="up-vote">
+      <%= review.up_vote_count %>
+    </div>
+
+    <div class="down-vote">
+      <%= review.down_vote_count %>
+    </div>
+
+  <ul>
+    <li>Rating: <%= review.rating %></li>
+    <li>Title: <%= review.title %></li>
+    <li>Body: <%= review.body %></li>
+    <%= link_to 'Delete review', admin_brewery_review_path(@brewery, review), method: :delete %>
+    <%= link_to 'Edit review', edit_admin_brewery_review_path(@brewery, review) %>
+
+  </ul>
+
+<% end %>

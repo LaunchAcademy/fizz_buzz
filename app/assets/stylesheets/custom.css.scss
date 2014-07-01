@@ -1,4 +1,9 @@
 $welcome-bg: url("homepage_bg_small.jpg");
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  line-height: 1.6666666666666667;
+}
 
 .main-container {
   margin-top:60px;
@@ -53,6 +58,8 @@ $welcome-bg: url("homepage_bg_small.jpg");
   text-align: center;
 }
 .welcome-logo {
+  height: auto;
   margin-top: -150px;
   margin-bottom:50px;
+  max-width: 100%;
 }

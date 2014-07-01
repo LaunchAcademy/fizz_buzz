@@ -1,9 +1,21 @@
-<video autoplay loop id="bgvid">
-  <source src="/app/assets/images/homepage_bg_vid.mp4" type="video/mp4">
-</video>
-
-<%= form_tag(breweries_path, method: "get") do %>
-  <%= label_tag(:search, "Search for brewery or city:") %>
-  <%= text_field_tag(:search) %>
-  <%= submit_tag("Search") %>
-<% end %>
+<div class="welcome-table">
+  <video autoplay loop poster="assets/homepage_bg_small.jpg" class="bgvid">
+    <source src="assets/homepage_bg_vid.mp4" type="video/mp4">
+  </video>
+  <div class="welcome-search">
+    <div class="container center">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <%= image_tag 'masterfizz.png', class: "welcome-logo" %>
+          <%= form_tag breweries_path, method: "get", class: "welcome-search-bar" do %>
+            <div class="input-group input-group-lg">
+              <%= text_field_tag :search, nil, placeholder: 'Enter city or brewery', class: "form-control" %>
+              <span class="input-group-btn">
+                <%= submit_tag "Search", class: "btn btn-search"  %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <div>
+</div>

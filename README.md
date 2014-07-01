@@ -6,7 +6,7 @@ A review site for Breweries.
 
 
 # Contributors
- * John Keith
- * Nick Terrafranca
- * Rory Team
- * David Godwin
+ * [David Godwin](https://github.com/Typhaon)
+ * [John Keith](https://github.com/johnkeith)
+ * [Rory Team](https://github.com/Rorick55)
+ * [Nick Terrafranca](https://github.com/NickTerrafranca)

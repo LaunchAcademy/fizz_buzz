@@ -17,7 +17,7 @@ feature "pagination on breweries index", %Q{
     visit breweries_path
 
     within("#breweries-list") do
-      expect(page).to have_css("li", :count => 30)
+      expect(page).to have_css("td", :count => 30)
     end
 
     expect(page).to have_content("Next ›")

@@ -14,7 +14,7 @@ So that I can sign in} do
     login_as(FactoryGirl.create(:user), scope: :user)
     visit root_path
 
-    expect(page).to have_content "Logout"
+    expect(page).to have_content "Sign out"
   end
 
   scenario "user enters incorrect password" do
@@ -24,8 +24,10 @@ So that I can sign in} do
 
     fill_in 'Email', with: user.email
     fill_in 'Password', with: "notpassword"
-
-    click_on 'Sign in'
+    
+    within('#new_user') do
+      click_on 'Sign in'
+    end
 
     expect(page).to have_content "Invalid email or password."
   end
@@ -38,7 +40,9 @@ So that I can sign in} do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: ""
 
-    click_on 'Sign in'
+    within('#new_user') do
+      click_on 'Sign in'
+    end
 
     expect(page).to have_content "Invalid email or password."
   end
@@ -56,7 +60,7 @@ So that I can sign in} do
     login_as(FactoryGirl.create(:user), scope: :user)
     visit root_path
 
-    click_on 'Logout'
+    click_on 'Sign out'
 
     expect(page).to have_content "Signed out successfully."
   end

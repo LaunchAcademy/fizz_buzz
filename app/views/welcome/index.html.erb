@@ -1,12 +1,12 @@
 <div class="welcome-table">
-  <video autoplay loop poster="assets/homepage_bg_small.jpg" class="bgvid">
-    <source src="assets/homepage_bg_vid.mp4" type="video/mp4">
+  <video autoplay loop poster="https://s3.amazonaws.com/fizz_buzz_production/homepage_bg_small.jpg" class="bgvid">
+    <source src="https://s3.amazonaws.com/fizz_buzz_production/homepage_bg_vid.mp4" type="video/mp4">
   </video>
   <div class="welcome-search">
     <div class="container center">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <%= image_tag 'masterfizz.png', class: "welcome-logo" %>
+          <img src="https://s3.amazonaws.com/fizz_buzz_production/masterfizz.png" class="welcome-logo" />
           <%= form_tag breweries_path, method: "get", class: "welcome-search-bar" do %>
             <div class="input-group input-group-lg">
               <%= text_field_tag :search, nil, placeholder: 'Enter city or brewery', class: "form-control" %>

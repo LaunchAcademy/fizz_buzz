@@ -18,4 +18,5 @@ class Review < ActiveRecord::Base
   def total_vote_count
     up_vote_count + down_vote_count
   end
+
 end

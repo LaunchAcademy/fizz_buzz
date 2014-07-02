@@ -13,4 +13,9 @@ class Brewery < ActiveRecord::Base
     where("name ilike ? OR city ilike ?", "%#{q}%", "%#{q}%")
   end
 
+  def reviews_ordered
+    self.reviews.each do |review|
+  end
+
+
 end

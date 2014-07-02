@@ -1,0 +1,58 @@
+$welcome-bg: url("homepage_bg_small.jpg");
+
+.main-container {
+  margin-top:60px;
+}
+.navbar-logo {
+
+}
+.bgvid {
+  background: $welcome-bg no-repeat;
+  background-size: cover;
+  height: auto;
+  top: 0; 
+  left: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  position: fixed; 
+  // width: auto;  
+  z-index: -100;
+}
+.welcome-bg {
+  background: $welcome-bg no-repeat;
+  background-size: cover;
+  height:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+}
+
+.welcome-table {
+  display: table;
+  height: 100%;
+  left:0;
+  margin-top:-120px;
+  position: fixed;
+  width: 100%;
+}
+
+.welcome-search {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.welcome-search-bar {
+  background: rgba(248, 248, 248, 0.3);
+  border-radius:6px;
+  padding:20px;
+}
+
+.center {
+  text-align: center;
+}
+.welcome-logo {
+  margin-top: -150px;
+  margin-bottom:50px;
+}

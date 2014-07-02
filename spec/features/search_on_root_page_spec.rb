@@ -14,7 +14,7 @@ feature "search on root page", %q(
 
     visit root_path
     
-    fill_in "Search", with: brewery.name
+    fill_in "search", with: brewery.name
     
     click_button "Search"
 
@@ -26,7 +26,7 @@ feature "search on root page", %q(
 
     visit root_path
     
-    fill_in "Search", with: brewery.name + "FooBizz"
+    fill_in "search", with: brewery.name + "FooBizz"
     
     click_button "Search"
 
@@ -39,7 +39,7 @@ feature "search on root page", %q(
 
     visit root_path
 
-    fill_in "Search", with: brewery.city
+    fill_in "search", with: brewery.city
 
     click_button "Search"
 

@@ -1,16 +1,35 @@
-<% if @breweries.empty? %>
-  <p>Your search returned no results.</p>
-<% else %>
-  <div id="breweries-list">
-    <% @breweries.each do |brewery| %>
-      <ul>
-        <li><%= link_to brewery.name, brewery_path(brewery) %></li>
-        <li><%= brewery.city %></li>
-      </ul>
-    <% end %>
+<div class="br-pattern-bg "></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+    <div class="form-wrapper">
+      <% if @breweries.empty? %>
+        <p>Your search returned no results.</p>
+      <% else %>
+        <div id="breweries-list">
+          <table class="table table-hover table-condensed">
+            <thead>
+              <tr>
+                <th>Brewery Name</th>
+                <th>Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @breweries.each do |brewery| %>
+                <tr>
+                  <td><%= link_to brewery.name, brewery_path(brewery) %></td>
+                  <td><%= brewery.city %></td>
+                </tr>
+              <% end %>
+          </tbody>
+        </table>
+        </div>
+        <%= paginate @breweries %>
+      <% end %>
+    </div>
+    </div>
   </div>
-  <%= paginate @breweries %>
-<% end %>
+</div>
 
 
 

@@ -11,6 +11,8 @@ body {
 .navbar-logo {
 
 }
+
+
 .bgvid {
   background: $welcome-bg no-repeat;
   background-size: cover;
@@ -51,6 +53,7 @@ body {
   top:0;
   left:0;
   width:100%;
+  z-index:-5;
 }
 
 .wd-pattern-bg {
@@ -61,6 +64,7 @@ body {
   top:0;
   left:0;
   width:100%;
+  z-index:-5;
 }
 
 .welcome-table {
@@ -90,6 +94,7 @@ body {
 .welcome-logo {
   height: auto;
   margin-top: -150px;
-  margin-bottom:50px;
+  margin-bottom:10px;
   max-width: 100%;
+  width:75%;
 }

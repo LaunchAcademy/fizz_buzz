@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/nterrafranca/Dropbox/launchacademy/fizz_buzz/app/models/user.rb": [
+      "/Users/johnkeith/Dev/LaunchAcademy/fizz_buzz/app/models/user.rb": [
         1,
         1,
         1,
@@ -18,7 +18,7 @@
         null,
         null
       ],
-      "/Users/nterrafranca/Dropbox/launchacademy/fizz_buzz/app/uploaders/profile_photo_uploader.rb": [
+      "/Users/johnkeith/Dev/LaunchAcademy/fizz_buzz/app/uploaders/profile_photo_uploader.rb": [
         null,
         null,
         1,
@@ -37,11 +37,11 @@
         null,
         null
       ],
-      "/Users/nterrafranca/Dropbox/launchacademy/fizz_buzz/app/helpers/application_helper.rb": [
+      "/Users/johnkeith/Dev/LaunchAcademy/fizz_buzz/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/nterrafranca/Dropbox/launchacademy/fizz_buzz/app/models/brewery.rb": [
+      "/Users/johnkeith/Dev/LaunchAcademy/fizz_buzz/app/models/brewery.rb": [
         1,
         1,
         1,
@@ -59,11 +59,11 @@
         null,
         null
       ],
-      "/Users/nterrafranca/Dropbox/launchacademy/fizz_buzz/app/models/product.rb": [
+      "/Users/johnkeith/Dev/LaunchAcademy/fizz_buzz/app/models/product.rb": [
         1,
         null
       ],
-      "/Users/nterrafranca/Dropbox/launchacademy/fizz_buzz/app/models/review.rb": [
+      "/Users/johnkeith/Dev/LaunchAcademy/fizz_buzz/app/models/review.rb": [
         1,
         1,
         1,
@@ -86,11 +86,11 @@
         null,
         null
       ],
-      "/Users/nterrafranca/Dropbox/launchacademy/fizz_buzz/app/models/type.rb": [
+      "/Users/johnkeith/Dev/LaunchAcademy/fizz_buzz/app/models/type.rb": [
         1,
         null
       ],
-      "/Users/nterrafranca/Dropbox/launchacademy/fizz_buzz/app/models/vote.rb": [
+      "/Users/johnkeith/Dev/LaunchAcademy/fizz_buzz/app/models/vote.rb": [
         1,
         1,
         1,
@@ -98,7 +98,7 @@
         1,
         null
       ],
-      "/Users/nterrafranca/Dropbox/launchacademy/fizz_buzz/app/controllers/breweries_controller.rb": [
+      "/Users/johnkeith/Dev/LaunchAcademy/fizz_buzz/app/controllers/breweries_controller.rb": [
         1,
         null,
         1,
@@ -144,7 +144,7 @@
         null,
         null
       ],
-      "/Users/nterrafranca/Dropbox/launchacademy/fizz_buzz/app/controllers/application_controller.rb": [
+      "/Users/johnkeith/Dev/LaunchAcademy/fizz_buzz/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -160,7 +160,7 @@
         null,
         null
       ],
-      "/Users/nterrafranca/Dropbox/launchacademy/fizz_buzz/app/controllers/reviews_controller.rb": [
+      "/Users/johnkeith/Dev/LaunchAcademy/fizz_buzz/app/controllers/reviews_controller.rb": [
         1,
         null,
         1,
@@ -218,7 +218,7 @@
         null,
         null
       ],
-      "/Users/nterrafranca/Dropbox/launchacademy/fizz_buzz/app/mailers/brewery_mailer.rb": [
+      "/Users/johnkeith/Dev/LaunchAcademy/fizz_buzz/app/mailers/brewery_mailer.rb": [
         1,
         1,
         null,
@@ -230,7 +230,7 @@
         null,
         null
       ],
-      "/Users/nterrafranca/Dropbox/launchacademy/fizz_buzz/app/controllers/votes_controller.rb": [
+      "/Users/johnkeith/Dev/LaunchAcademy/fizz_buzz/app/controllers/votes_controller.rb": [
         1,
         1,
         4,
@@ -255,7 +255,7 @@
         null,
         null
       ],
-      "/Users/nterrafranca/Dropbox/launchacademy/fizz_buzz/app/controllers/admin/breweries_controller.rb": [
+      "/Users/johnkeith/Dev/LaunchAcademy/fizz_buzz/app/controllers/admin/breweries_controller.rb": [
         1,
         1,
         null,
@@ -325,7 +325,7 @@
         null,
         null
       ],
-      "/Users/nterrafranca/Dropbox/launchacademy/fizz_buzz/app/controllers/admin/reviews_controller.rb": [
+      "/Users/johnkeith/Dev/LaunchAcademy/fizz_buzz/app/controllers/admin/reviews_controller.rb": [
         1,
         1,
         1,
@@ -363,13 +363,13 @@
         null,
         null
       ],
-      "/Users/nterrafranca/Dropbox/launchacademy/fizz_buzz/app/controllers/welcome_controller.rb": [
+      "/Users/johnkeith/Dev/LaunchAcademy/fizz_buzz/app/controllers/welcome_controller.rb": [
         1,
         1,
         null,
         null
       ]
     },
-    "timestamp": 1404310053
+    "timestamp": 1404315163
   }
 }

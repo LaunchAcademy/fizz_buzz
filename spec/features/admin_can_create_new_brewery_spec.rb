@@ -3,11 +3,11 @@ require 'rails_helper'
 feature 'admin can create new brewery' do
   let(:admin) { FactoryGirl.create(:user, role: "admin") }
   let(:user) { FactoryGirl.create(:user) }
-  
+
   scenario 'admin creates brewery' do
     login_as admin
     visit new_admin_brewery_path
-    
+
     brewery = FactoryGirl.build(:brewery)
 
     fill_in 'Name', with: brewery.name
@@ -20,7 +20,7 @@ feature 'admin can create new brewery' do
     fill_in 'Description', with: brewery.description
     fill_in 'Hours', with: brewery.hours
 
-    click_button "Create"
+    click_button "Create Brewery"
     expect(page).to have_content("Brewery successfully added")
   end
 

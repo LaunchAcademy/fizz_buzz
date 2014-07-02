@@ -30,7 +30,7 @@ feature 'update brewery information', %Q{
 
     fill_in "Name", with: "Sammy Adams"
 
-    click_button "Update"
+    click_button "Update Brewery"
 
     expect(page).to have_content "Brewery information updated"
     expect(page).to have_content "Sammy Adams"
@@ -45,7 +45,7 @@ feature 'update brewery information', %Q{
 
     fill_in "Name", with: ""
 
-    click_button "Update"
+    click_button "Update Brewery"
 
     expect(page).to have_content "can't be blank"
   end
@@ -58,7 +58,7 @@ feature 'update brewery information', %Q{
 
     fill_in "Name", with: breweries[1].name
 
-    click_button "Update"
+    click_button "Update Brewery"
 
     expect(page).to have_content "has already been taken"
     expect(page).to have_content breweries[1].name

@@ -1,4 +1,3 @@
-
 <div class="br-pattern-bg"></div>
 <div class="container">
   <div class="row">
@@ -7,9 +6,9 @@
         <%= link_to "Back to breweries list", breweries_path %>
 
         <% if current_user %>
-        <% if current_user.id == @brewery.user_id %>
-        <%= link_to 'Update', edit_brewery_path(@brewery) %>
-        <% end %>
+          <% if current_user.id == @brewery.user_id %>
+            <%= link_to 'Update', edit_brewery_path(@brewery) %>
+          <% end %>
         <% end %>
 
         <ul class="list-group">
@@ -39,26 +38,29 @@
             <%= @brewery.description %>
           </div>
         </div>
-        <%= render 'reviews/new' %>
+        <% if current_user %>
+          <%= render 'reviews/new' %>
+        <% end %>
         <br>
         <!-- reviews must be ordered by votes -->
+        
         <% @brewery.reviews.each do |review| %>
-
-          <ul class="list-inline">
-            <li>
-              <%= form_for [@brewery, review, @vote] do |f| %>
-                <%=f.hidden_field :score, value: 1 %>
-                <%= f.submit "Like", class: "btn btn-success" %>
-              <%end%>
-            </li>
-            <li>
-              <%= form_for [@brewery, review, @vote] do |f| %>
-                <%=f.hidden_field :score, value: -1 %>
-                <%= f.submit "Unlike" , class: "btn btn-danger"%>
-              <%end%>
-            </li>
-          </ul>
-
+          
+            <ul class="list-inline">
+              <li>
+                <%= form_for [@brewery, review, @vote] do |f| %>
+                  <%=f.hidden_field :score, value: 1 %>
+                  <%= f.submit "Like", class: "btn btn-success" %>
+                <%end%>
+              </li>
+              <li>
+                <%= form_for [@brewery, review, @vote] do |f| %>
+                  <%=f.hidden_field :score, value: -1 %>
+                  <%= f.submit "Unlike" , class: "btn btn-danger"%>
+                <%end%>
+              </li>
+            </ul>
+   
           <ul class="list-group">
             <li class="list-group-item">Rating: <%= review.rating %></li>
             <li class="list-group-item"><%= review.title %></li>

@@ -1,62 +1,78 @@
-<%= link_to "Back to breweries list", breweries_path %>
 
-<% if current_user %>
-  <% if current_user.id == @brewery.user_id %>
-    <%= link_to 'Update', edit_brewery_path(@brewery) %>
-  <% end %>
-<% end %>
+<div class="br-pattern-bg"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="form-wrapper">
+        <%= link_to "Back to breweries list", breweries_path %>
 
-<ul>
-  <li><%= @brewery.name %></li>
-  <li><%= @brewery.address %></li>
-  <li><%= @brewery.city %></li>
-  <li><%= @brewery.state %></li>
-  <li><%= @brewery.zip %></li>
-  <li><%= @brewery.phone_number %></li>
+        <% if current_user %>
+        <% if current_user.id == @brewery.user_id %>
+        <%= link_to 'Update', edit_brewery_path(@brewery) %>
+        <% end %>
+        <% end %>
 
-  <li><%= @brewery.description %></li>
+        <ul class="list-group">
+          Name:
+          <li class="list-group-item"><%= @brewery.name %></li>
+          Address:
+          <li class="list-group-item"><%= @brewery.address %></li>
+          <li class="list-group-item"><%= @brewery.city %></li>
+          <li class="list-group-item"><%= @brewery.state %></li>
+          <li class="list-group-item"><%= @brewery.zip %></li>
+          <li class="list-group-item"><%= @brewery.phone_number %></li>
 
-  <% if @brewery.hours %>
-    <li><%= @brewery.hours %></li>
-  <% end %>
+          <% if @brewery.hours %>
+          Business Hours:
+          <li class="list-group-item"><%= @brewery.hours %></li>
+          <% end %>
 
-  <% if @brewery.url %>
-    <li><%= link_to @brewery.url, @brewery.url %></li>
-  <% end %>
-</ul>
+          <% if @brewery.url %>
+          Website:
+          <li class="list-group-item"><%= link_to @brewery.url, @brewery.url %></li>
+          <% end %>
+        </ul>
 
-<%= render 'reviews/new' %>
+        Description:
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= @brewery.description %>
+          </div>
+        </div>
+        <%= render 'reviews/new' %>
+        <br>
+        <!-- reviews must be ordered by votes -->
+        <% @brewery.reviews.each do |review| %>
 
-<% @brewery.reviews.each do |review| %>
+          <ul class="list-inline">
+            <li>
+              <%= form_for [@brewery, review, @vote] do |f| %>
+                <%=f.hidden_field :score, value: 1 %>
+                <%= f.submit "Like", class: "btn btn-success" %>
+              <%end%>
+            </li>
+            <li>
+              <%= form_for [@brewery, review, @vote] do |f| %>
+                <%=f.hidden_field :score, value: -1 %>
+                <%= f.submit "Unlike" , class: "btn btn-danger"%>
+              <%end%>
+            </li>
+          </ul>
 
-    <%= form_for [@brewery, review, @vote] do |f| %>
-      <%=f.hidden_field :score, value: 1 %>
-      <%= f.submit "Up" %>
-    <%end%>
-
-    <div class="up-vote">
-      <%= review.up_vote_count %>
+          <ul class="list-group">
+            <li class="list-group-item">Rating: <%= review.rating %></li>
+            <li class="list-group-item"><%= review.title %></li>
+            <li class="list-group-item"><%= review.body %></li>
+            <% if current_user %>
+              <% if current_user.id == review.user_id %>
+                <%= link_to 'Delete review', brewery_review_path(@brewery, review), method: :delete %>
+                <%= link_to 'Edit review', edit_brewery_review_path(@brewery, review) %>
+              <% end %>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
     </div>
+  </div>
+</div>
 
-    <%= form_for [@brewery, review, @vote] do |f| %>
-      <%=f.hidden_field :score, value: -1%>
-      <%= f.submit "Down" %>
-    <%end%>
-
-    <div class="down-vote">
-      <%= review.down_vote_count %>
-    </div>
-
-  <ul>
-    <li>Rating: <%= review.rating %></li>
-    <li>Title: <%= review.title %></li>
-    <li>Body: <%= review.body %></li>
-    <% if current_user %>
-      <% if current_user.id == review.user_id %>
-        <%= link_to 'Delete review', brewery_review_path(@brewery, review), method: :delete %>
-        <%= link_to 'Edit review', edit_brewery_review_path(@brewery, review) %>
-      <% end %>
-    <% end %>
-  </ul>
-
-<% end %>

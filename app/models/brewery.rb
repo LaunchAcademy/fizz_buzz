@@ -10,5 +10,4 @@ class Brewery < ActiveRecord::Base
   def self.search(q)
     where("name ilike ? OR city ilike ?", "%#{q}%", "%#{q}%")
   end
-
 end

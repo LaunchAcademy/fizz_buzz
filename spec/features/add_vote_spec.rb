@@ -17,44 +17,33 @@ feature 'adds votes', %Q{
     login_as user
   end
 
-  scenario "user 'Up' a review" do
+  scenario "user 'Like' a review" do
     vote_count = review.up_vote_count
 
     visit brewery_path(review.brewery)
-    click_on 'Up'
-    within('.up-vote') do
-      expect(page).to have_content '1'
-      expect(review.up_vote_count).to eq vote_count + 1
-    end
+
+    click_on 'Like'
+    expect(review.up_vote_count).to eq vote_count + 1
   end
 
-  scenario "user 'Down' a review" do
+  scenario "user 'Unlike' a review" do
     vote_count = review.down_vote_count
 
     visit brewery_path(review.brewery)
-    click_on 'Down'
-    within('.down-vote') do
-      expect(page).to have_content '-1'
-      expect(review.down_vote_count).to eq vote_count - 1
-    end
+
+    click_on 'Unlike'
+    expect(review.down_vote_count).to eq vote_count - 1
   end
 
-  scenario "user 'Up' a review" do
+  scenario "user 'Like0' a review" do
     vote_count = review.up_vote_count
 
     visit brewery_path(review.brewery)
-    click_on 'Up'
 
-    within('.up-vote') do
-      expect(page).to have_content '1'
-      expect(review.up_vote_count).to eq vote_count + 1
-    end
+    click_on 'Like'
+    expect(review.up_vote_count).to eq vote_count + 1
 
-    click_on 'Down'
-
-    within('.down-vote') do
-      expect(page).to have_content '-1'
-      expect(review.down_vote_count).to eq vote_count - 1
-    end
+    click_on 'Unlike'
+    expect(review.down_vote_count).to eq vote_count - 1
   end
 end

@@ -8,20 +8,19 @@
       <% end %>
     </ul>
   <% end %>
-
-  <%= f.label :title %><br>
-  <%= f.text_field :title%><br>
-
-  <%= f.label :body %><br>
-  <%= f.text_area :body %><br>
-
-
-  <strong>Rating</strong><br>
+  <br>
+  <strong>User Rating</strong><br>
   <% (1..5).each do |i| %>
     <%= f.radio_button(:rating, i) %>
-    <%= f.label(:rating_star, "#{i} Star") %>
+    <%= f.label(:rating_star, "#{i} Stars") %>
   <% end %>
   <br>
-  <%= f.submit 'Submit' %>
 
+  <%= f.label :title, class: "control-label"  %><br>
+  <%= f.text_field :title%>
+  <br>
+  <%= f.label :body, class: "control-label"  %><br>
+  <%= f.text_area :body, class: "form-control"  %><br>
+
+  <%= f.submit 'Submit', class: "btn btn-default" %>
 <% end %>

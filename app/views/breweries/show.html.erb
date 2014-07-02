@@ -28,6 +28,7 @@
 <%= render 'reviews/new' %>
 
 <% @brewery.reviews.each do |review| %>
+
     <%= form_for [@brewery, review, @vote] do |f| %>
       <%=f.hidden_field :score, value: 1 %>
       <%= f.submit "Up" %>

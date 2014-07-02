@@ -1,4 +1,6 @@
-$welcome-bg: url("homepage_bg_small.jpg");
+$welcome-bg: url("https://s3.amazonaws.com/fizz_buzz_production/homepage_bg_small.jpg");
+$brick_wall: url("https://s3.amazonaws.com/fizz_buzz_production/brickwall_%402X.png");
+$dark_wood: url("https://s3.amazonaws.com/fizz_buzz_production/dark_wood_%402X.png");
 
 body {
   font-family: 'Nunito', sans-serif;
@@ -47,7 +49,7 @@ body {
 }
 
 .br-pattern-bg {
- background: url(brickwall_@2X.png) repeat;
+ background: $brick_wall repeat;
 
   height:100%;
   position:fixed;
@@ -58,7 +60,7 @@ body {
 }
 
 .wd-pattern-bg {
- background: url(dark_wood_@2X.png) repeat;
+ background: $dark_wood repeat;
 
   height:100%;
   position:fixed;

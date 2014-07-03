@@ -20,6 +20,6 @@ class Review < ActiveRecord::Base
   end
 
   def update_rank
-    self.update(rank: self.total_vote_count)
+    update(rank: total_vote_count)
   end
 end

@@ -6,8 +6,10 @@ class VotesController< ApplicationController
       user: current_user,
       review: @review
     )
-
-    if @vote.update!(vote_params)
+    if !current_user
+      flash[:notice] = "You must be signed in to do that."
+      render template: "breweries/show"
+    elsif @vote.update!(vote_params)
       redirect_to brewery_path(@brewery)
     elsif @vote.save
       redirect_to brewery_path(@brewery)

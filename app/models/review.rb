@@ -19,4 +19,7 @@ class Review < ActiveRecord::Base
     up_vote_count + down_vote_count
   end
 
+  def update_rank
+    update(rank: total_vote_count)
+  end
 end

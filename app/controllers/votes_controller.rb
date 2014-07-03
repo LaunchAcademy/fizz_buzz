@@ -10,8 +10,10 @@ class VotesController< ApplicationController
       flash[:notice] = "You must be signed in to do that."
       render template: "breweries/show"
     elsif @vote.update!(vote_params)
+      @review.update_rank
       redirect_to brewery_path(@brewery)
     elsif @vote.save
+      @review.update_rank
       redirect_to brewery_path(@brewery)
     else
       @brewery = Brewery.find(params[:brewery_id])

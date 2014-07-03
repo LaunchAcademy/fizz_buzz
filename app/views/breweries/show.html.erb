@@ -43,28 +43,32 @@
         <% end %>
         <br>
         <!-- reviews must be ordered by votes -->
-        
-        <% @brewery.reviews.each do |review| %>
-          
-            <ul class="list-inline">
-              <li>
-                <%= form_for [@brewery, review, @vote] do |f| %>
-                  <%=f.hidden_field :score, value: 1 %>
-                  <%= f.submit "Like", class: "btn btn-success" %>
-                <%end%>
-              </li>
-              <li>
-                <%= form_for [@brewery, review, @vote] do |f| %>
-                  <%=f.hidden_field :score, value: -1 %>
-                  <%= f.submit "Unlike" , class: "btn btn-danger"%>
-                <%end%>
-              </li>
-            </ul>
-   
+
+        <% @brewery.reviews.order('rank DESC').each do |review| %>
+
+
+
           <ul class="list-group">
             <li class="list-group-item">Rating: <%= review.rating %></li>
             <li class="list-group-item"><%= review.title %></li>
             <li class="list-group-item"><%= review.body %></li>
+            <li class="list-group-item">
+              <ul class="list-inline">
+                <li>
+                  <%= form_for [@brewery, review, @vote] do |f| %>
+                    <%=f.hidden_field :score, value: 1 %>
+                    <%= f.submit "Like", class: "btn btn-success" %>
+                  <%end%>
+                </li>
+                <li><%= review.total_vote_count %></li>
+                <li>
+                  <%= form_for [@brewery, review, @vote] do |f| %>
+                    <%=f.hidden_field :score, value: -1 %>
+                    <%= f.submit "Unlike" , class: "btn btn-danger"%>
+                  <%end%>
+                </li>
+              </ul>
+            </li>
             <% if current_user %>
               <% if current_user.id == review.user_id %>
                 <%= link_to 'Delete review', brewery_review_path(@brewery, review), method: :delete %>
